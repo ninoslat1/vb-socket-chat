@@ -57,7 +57,7 @@ Public Class Form1
         Try
             Client.Connect(Endpoint)
             If (Client.Connected) Then
-                TextBox5.AppendText("Connected to Server " + Environment.NewLine)
+                RichTextBox1.AppendText("Connected to Server " + Environment.NewLine)
                 Writer = New StreamWriter(Client.GetStream())
                 Reader = New StreamReader(Client.GetStream())
                 Writer.AutoFlush = True
@@ -73,9 +73,14 @@ Public Class Form1
         While (Client.Connected)
             Try
                 receivedMessage = Reader.ReadLine()
-                Me.TextBox5.Invoke(New MethodInvoker(Function()
-                                                         TextBox5.AppendText("You: " + receivedMessage + Environment.NewLine)
-                                                     End Function))
+                Me.RichTextBox1.Invoke(New MethodInvoker(Sub()
+                                                             Dim image As Image = Image.FromFile("C:\Users\USER\source\repos\Socket Chat App\Socket Chat App\assets\icons8-user-50.png")
+                                                             Clipboard.SetImage(image)
+                                                             RichTextBox1.AppendText(Environment.NewLine)
+                                                             RichTextBox1.SelectionStart = RichTextBox1.TextLength
+                                                             RichTextBox1.Paste()
+                                                             RichTextBox1.AppendText("You: " + receivedMessage + Environment.NewLine)
+                                                         End Sub))
                 receivedMessage = ""
             Catch ex As Exception
                 MessageBox.Show(ex.Message.ToString())
@@ -86,12 +91,17 @@ Public Class Form1
     Private Sub BackgroundWorker2_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker2.DoWork
         If (Client.Connected) Then
             Writer.WriteLine(sendMessage)
-            Me.TextBox5.Invoke(New MethodInvoker(Function()
-                                                     TextBox5.AppendText("Me: " + sendMessage + Environment.NewLine)
-                                                 End Function))
+            Me.RichTextBox1.Invoke(New MethodInvoker(Sub()
+                                                         Dim image As Image = Image.FromFile("C:\Users\USER\source\repos\Socket Chat App\Socket Chat App\assets\icons8-user-50_(1).png")
+                                                         Clipboard.SetImage(image)
+                                                         RichTextBox1.AppendText(Environment.NewLine)
+                                                         RichTextBox1.SelectionStart = RichTextBox1.TextLength
+                                                         RichTextBox1.Paste()
+                                                         RichTextBox1.AppendText("Me: " + sendMessage + Environment.NewLine)
+                                                     End Sub))
             sendMessage = ""
         Else
-            MessageBox.Show("Message failed to sent")
+            MessageBox.Show("Message failed to send")
         End If
 
         BackgroundWorker2.CancelAsync()

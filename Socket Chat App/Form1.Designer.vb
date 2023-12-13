@@ -37,11 +37,11 @@ Partial Class Form1
         TextBox4 = New TextBox()
         Button1 = New Button()
         Button2 = New Button()
-        TextBox5 = New TextBox()
         TextBox6 = New TextBox()
         Button3 = New Button()
         BackgroundWorker1 = New ComponentModel.BackgroundWorker()
         BackgroundWorker2 = New ComponentModel.BackgroundWorker()
+        RichTextBox1 = New RichTextBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -176,24 +176,14 @@ Partial Class Form1
         Button2.Text = "Connect"
         Button2.UseVisualStyleBackColor = True
         ' 
-        ' TextBox5
-        ' 
-        TextBox5.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        TextBox5.BorderStyle = BorderStyle.None
-        TextBox5.Location = New Point(37, 284)
-        TextBox5.Multiline = True
-        TextBox5.Name = "TextBox5"
-        TextBox5.Size = New Size(735, 555)
-        TextBox5.TabIndex = 15
-        ' 
         ' TextBox6
         ' 
         TextBox6.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         TextBox6.BorderStyle = BorderStyle.None
-        TextBox6.Location = New Point(37, 876)
+        TextBox6.Location = New Point(12, 876)
         TextBox6.Multiline = True
         TextBox6.Name = "TextBox6"
-        TextBox6.Size = New Size(584, 68)
+        TextBox6.Size = New Size(609, 68)
         TextBox6.TabIndex = 16
         ' 
         ' Button3
@@ -212,6 +202,15 @@ Partial Class Form1
         ' BackgroundWorker2
         ' 
         ' 
+        ' RichTextBox1
+        ' 
+        RichTextBox1.BorderStyle = BorderStyle.None
+        RichTextBox1.Location = New Point(12, 300)
+        RichTextBox1.Name = "RichTextBox1"
+        RichTextBox1.Size = New Size(776, 559)
+        RichTextBox1.TabIndex = 20
+        RichTextBox1.Text = ""
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -219,7 +218,6 @@ Partial Class Form1
         ClientSize = New Size(800, 972)
         Controls.Add(Button3)
         Controls.Add(TextBox6)
-        Controls.Add(TextBox5)
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(TextBox3)
@@ -234,6 +232,7 @@ Partial Class Form1
         Controls.Add(Label1)
         Controls.Add(PictureBox3)
         Controls.Add(PictureBox1)
+        Controls.Add(RichTextBox1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
@@ -258,10 +257,10 @@ Partial Class Form1
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents TextBox5 As TextBox
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents Button3 As Button
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents RichTextBox1 As RichTextBox
 
 End Class
